@@ -1,0 +1,86 @@
+
+@import './styles/settings';
+@import './styles/header';
+@import './styles/dashcard';
+@import './styles/modal';
+
+html {
+    font-size: 62.5%;
+}
+body {
+  margin: 0;
+    font-size:1.6rem;
+    max-width:100vw;
+    overflow-x: hidden;
+}
+.container{
+    display: flex;
+    min-height:100vh;
+    flex-direction:column;
+    background:$black-bg;
+    padding:1em 2em;
+    h1 {
+        font-family: 'Pacifico', Helvetica, sans-serif;
+        color:white;
+        text-align:center;
+        font-size:3.5em;
+        font-weight: lighter;
+      }
+  }
+  .row{
+    display:flex;
+    flex-direction: row;
+    width:100%;
+  }
+    
+  .align-center{
+    align-items: center;
+  }
+
+  .btn-row{
+    align-items:center;
+    justify-content: flex-end;
+    margin-top:1em;
+    margin-bottom:.8em;
+  }
+  .btn{
+    padding: .8em;
+    color:white;
+    font-family: $open-sans;
+    margin-left:.5em;
+    margin-right:.5em;
+    cursor:pointer;
+    transition: all .3s ease-in;
+  }
+  .btn-success{
+    background: $green;
+    &:hover{
+      background:darken($green, 10%);
+        }
+  }
+  .btn-cancel {
+    background:lightgray;
+    &:hover{
+      background:darken(lightgrey, 10%);
+    }
+  }
+  .btn-more {
+    background:$blue;
+    &:hover{
+      background:darken($blue, 10%);
+    }
+  }
+  .open-sans{
+    font-family: $open-sans;
+  }
+  .align-end{
+    justify-content: flex-end;
+  }
+  .divider{
+    align-self: center;
+    width:40%;
+    height:1px;
+  }
+  .blue-bg {
+    background: $blue;
+  }
