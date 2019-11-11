@@ -18,13 +18,27 @@
     padding: 1em 2em;
     width:50vw;
     flex-grow: 0;
-    display:flex;
+    display:none;
     flex-direction:column;
     background-color:$grey;
 
     h2 {
       color: white;
 
+    }
+    label {
+      font-size:1.3em;
+      color:white;
+      font-family: $open-sans;
+      margin-top: 1em;
+    }
+    select {
+      padding: 5px 9px;
+      font-family: $open-sans;
+      font-size: 1.1em;
+      margin-top:5px;
+      border:none;
+      border-radius:8px;
     }
   }
   .modal__field{
@@ -33,5 +47,5 @@
     border:none;
     font-family: $open-sans;
     font-size:1.1em;
-    margin-top:1em;
+    margin-top:5px;
   }

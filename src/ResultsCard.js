@@ -1,35 +1,35 @@
 import React, { useContext } from 'react';
-import AppsContext from './context/applications-context'
-import ApplicationBox from './ApplicationBox'
+import ResultsContext from './context/results-context'
+import ResultsBox from './ResultsBox'
 import PlusSign from './PlusSign';
 
-const showApplicationModal = () => {
-    document.getElementById('application-modal').style.display = 'flex'
+const showResultsModal = () => {
+    document.getElementById('results-modal').style.display = 'flex'
     document.getElementById('modal-wrapper').style.display = 'flex'
 
 }
 
-const DashboardCard = () => {
-    const {apps} = useContext(AppsContext)
-
+const ResultsCard = () => {
+    const {results} = useContext(ResultsContext)
     return (
         <div className = 'dashboard-container'>
-            <div className = 'row align-center'  onClick = { showApplicationModal }>
+            <div className = 'row align-center'  onClick = { showResultsModal }>
                 <h2 className = 'dashboard-container-header'>
-                    Submitted Applications
+                    Results
                 </h2>
             <PlusSign/>
             </div>
             <div className = 'row'>
                 <div className = 'divider blue-bg'></div>
             </div>
-            {
-                apps.map((app) =>{
+            { 
+                results.map((result) =>{
                     return (
-                        <ApplicationBox key = {app} app = {app}/>
+                        <ResultsBox key = {result} result = {result}/>
                     )
-                })
+                }) 
             }
+            
             <div className = 'row align-end'>
             <div className = 'btn btn-more'>See All</div>
             </div>
@@ -37,4 +37,4 @@ const DashboardCard = () => {
         </div>
     )
 }
-export default DashboardCard
+export default ResultsCard
