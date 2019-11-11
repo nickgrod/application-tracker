@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
-import AppsContext from './context/applications-context'
-import InterviewsContext from './context/interview-context'
-import ResultsContext from './context/results-context'
+import AppsContext from '../context/applications-context'
+import InterviewsContext from '../context/interview-context'
+import ResultsContext from '../context/results-context'
 
 const closeAppModal = () => {
     document.getElementById('application-modal').style.display = 'none'
@@ -17,8 +17,8 @@ const closeResultModal = () => {
 }
 const ApplicationModal = () => {
     const { apps, appsDispatch } = useContext(AppsContext)
-    const { interviews, interviewsDispatch } = useContext(InterviewsContext)
-    const { results, resultsDispatch} = useContext(ResultsContext)
+    const { interviewsDispatch } = useContext(InterviewsContext)
+    const { resultsDispatch} = useContext(ResultsContext)
 
     const addApp = () => {
         appsDispatch({

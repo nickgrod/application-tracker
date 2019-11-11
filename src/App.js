@@ -1,12 +1,13 @@
-import React, { useState, useEffect, useReducer }  from 'react';
-import DashboardCard from './DashboardCard';
-import ApplicationModal from './ApplicationModal';
+import React, { useReducer }  from 'react';
+import DashboardCard from './components/DashboardCard';
+import ApplicationModal from './components/ApplicationModal';
 import AppsContext from './context/applications-context'
 import InterviewsContext from './context/interview-context'
-import InterviewCard from './InterviewCard'
+import InterviewCard from './components/InterviewCard'
 import ResultsContext from './context/results-context'
-import ResultsCard from './ResultsCard'
+import ResultsCard from './components/ResultsCard'
 
+//reducer for applications, adds and filters submitted applications
 const appsReducer = (state, action) => {
   switch(action.type){
     case 'POPULATE_APPS':
@@ -25,7 +26,7 @@ const appsReducer = (state, action) => {
       return state
   }
 }
-
+//results reducer, each result requires a valid application to tie it to
 const resultsReducer = (state, action) => {
   switch(action.type){
     case 'POPULATE_RESULTS':
@@ -44,6 +45,7 @@ const resultsReducer = (state, action) => {
   }
 }
 
+//interview reducer, each interview requires a valid application to tie it to
 const interviewsReducer = (state, action) => {
   switch(action.type){
     case 'POPULATE_INTERVIEWS':

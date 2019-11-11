@@ -1,35 +1,34 @@
 import React, { useContext } from 'react';
-import ResultsContext from './context/results-context'
-import ResultsBox from './ResultsBox'
+import InterviewsContext from '../context/interview-context'
+import InterviewBox from './InterviewBox'
 import PlusSign from './PlusSign';
 
-const showResultsModal = () => {
-    document.getElementById('results-modal').style.display = 'flex'
+const showInterviewModal = () => {
+    document.getElementById('interview-modal').style.display = 'flex'
     document.getElementById('modal-wrapper').style.display = 'flex'
 
 }
 
-const ResultsCard = () => {
-    const {results} = useContext(ResultsContext)
+const InterviewCard = () => {
+    const {interviews} = useContext(InterviewsContext)
     return (
         <div className = 'dashboard-container'>
-            <div className = 'row align-center'  onClick = { showResultsModal }>
+            <div className = 'row align-center'  onClick = { showInterviewModal }>
                 <h2 className = 'dashboard-container-header'>
-                    Results
+                    Interviews
                 </h2>
             <PlusSign/>
             </div>
             <div className = 'row'>
                 <div className = 'divider blue-bg'></div>
             </div>
-            { 
-                results.map((result) =>{
+            {
+                interviews.map((interview) =>{
                     return (
-                        <ResultsBox key = {result} result = {result}/>
+                        <InterviewBox key = {interview} interview = {interview}/>
                     )
-                }) 
+                })
             }
-            
             <div className = 'row align-end'>
             <div className = 'btn btn-more'>See All</div>
             </div>
@@ -37,4 +36,4 @@ const ResultsCard = () => {
         </div>
     )
 }
-export default ResultsCard
+export default InterviewCard

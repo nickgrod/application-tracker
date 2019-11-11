@@ -1,21 +1,22 @@
 import React, { useContext } from 'react';
-import InterviewsContext from './context/interview-context'
-import InterviewBox from './InterviewBox'
+import AppsContext from '../context/applications-context'
+import ApplicationBox from './ApplicationBox'
 import PlusSign from './PlusSign';
 
-const showInterviewModal = () => {
-    document.getElementById('interview-modal').style.display = 'flex'
+const showApplicationModal = () => {
+    document.getElementById('application-modal').style.display = 'flex'
     document.getElementById('modal-wrapper').style.display = 'flex'
 
 }
 
-const InterviewCard = () => {
-    const {interviews} = useContext(InterviewsContext)
+const DashboardCard = () => {
+    const {apps} = useContext(AppsContext)
+
     return (
         <div className = 'dashboard-container'>
-            <div className = 'row align-center'  onClick = { showInterviewModal }>
+            <div className = 'row align-center'  onClick = { showApplicationModal }>
                 <h2 className = 'dashboard-container-header'>
-                    Interviews
+                    Submitted Applications
                 </h2>
             <PlusSign/>
             </div>
@@ -23,9 +24,9 @@ const InterviewCard = () => {
                 <div className = 'divider blue-bg'></div>
             </div>
             {
-                interviews.map((interview) =>{
+                apps.map((app) =>{
                     return (
-                        <InterviewBox key = {interview} interview = {interview}/>
+                        <ApplicationBox key = {app} app = {app}/>
                     )
                 })
             }
@@ -36,4 +37,4 @@ const InterviewCard = () => {
         </div>
     )
 }
-export default InterviewCard
+export default DashboardCard
