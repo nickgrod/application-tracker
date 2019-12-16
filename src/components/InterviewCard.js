@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import InterviewsContext from '../context/interview-context'
 import InterviewBox from './InterviewBox'
 import PlusSign from './PlusSign';
+import placid from '../images/placid.svg'
 
 const showInterviewModal = () => {
     document.getElementById('interview-modal').style.display = 'flex'
@@ -23,15 +24,28 @@ const InterviewCard = () => {
                 <div className = 'divider blue-bg'></div>
             </div>
             {
+                interviews.length>0?
                 interviews.map((interview) =>{
                     return (
                         <InterviewBox key = {interview} interview = {interview}/>
                     )
-                })
+                }) : (
+                    <div className = 'nothing-wrapper'>
+                        <img className = 'animated fadeInUp' src = {placid} alt = 'Smiley face'/>
+                        <p className = 'animated fadeIn'>Nothing to show yet.<br/>Phone lines are now open!</p>
+                    </div>
+                )
             }
-            <div className = 'row align-end'>
+            {
+                interviews.length > 0? (
+                    <div className = 'row align-end'>
             <div className = 'btn btn-more'>See All</div>
             </div>
+                ) : (
+                    null
+                )
+            }
+            
             
         </div>
     )

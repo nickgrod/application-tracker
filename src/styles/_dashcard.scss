@@ -8,12 +8,14 @@
     box-shadow: 3px 3px 5px black;
     width: 30%;
     padding:.8em 1.2em;
+    margin-right: 20px;
+    margin-left: 20px;
   }
   .dashboard-container-header{
     font-family: 'Open Sans', Helvetica, sans-serif;
     font-size:1.3em;
-    font-weight:100;
-    color: #b3b3b3;
+    font-weight:400;
+    color: white;
   
   }
   .plus-sign{
@@ -62,5 +64,25 @@
     }
     &:hover{
       background:darken($grey, 3%);
+    }
+  }
+  .nothing-wrapper{
+    display:flex;
+    flex-direction:column;
+    align-content: center;
+    justify-content: center;
+    align-items:center;
+    text-align:center;
+    padding: 2em 0.5em;
+    img{
+      width:20%;
+      margin-bottom:0.5em;
+    }
+    p {
+      font-size: 1.1em;
+      font-family: $open-sans;
+      color:white;
+      margin:0.2em 0em;
+      font-weight:300;
     }
   }

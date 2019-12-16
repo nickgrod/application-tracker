@@ -4,7 +4,7 @@ import React from 'react';
 const InterviewBox = ( {interview} ) => {
 
     return (
-        <div className = 'application-box'>
+        <div className = 'application-box animated slideInUp'>
         <div className = 'row align-center head-box'>
         <h3>{interview.position}</h3>
         {/* <p>{interview.date}</p> */}

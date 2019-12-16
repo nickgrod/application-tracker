@@ -10,8 +10,6 @@ import App from './App'
 const AppRouter = () => {
   return (
     <Router>
-          
-      <div>
       <Header/>
         <Switch>
           <Route path="/main">
@@ -21,7 +19,6 @@ const AppRouter = () => {
             <App />
           </Route>
         </Switch>
-      </div>
     </Router>
   );
 }
