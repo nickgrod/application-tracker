@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useEffect } from 'react';
 import DashboardCard from './components/DashboardCard';
 import ApplicationModal from './components/ApplicationModal';
 import AppsContext from './context/applications-context'
@@ -12,6 +12,7 @@ import interviewsReducer from './reducers/interviews'
 import JobsContext from './context/jobs-context'
 import JobsReducer from './reducers/jobs'
 import JobsContainer from './components/JobsContainer'
+import axios from 'axios'
 
 const App = () => {
   const [interviews, interviewsDispatch] = useReducer(interviewsReducer, [])
@@ -19,7 +20,18 @@ const App = () => {
   const [results, resultsDispatch] = useReducer(resultsReducer, [])
   const [jobs, jobsDispatch] = useReducer(JobsReducer, [])
 
-
+  const getJobs = async() => {
+    const response = await axios.get('https://github-jobs-proxy.appspot.com/positions?description=javascript&location=san+francisco');
+    const pop_jobs = response.data;
+    jobsDispatch({type:'POPULATE_JOBS', pop_jobs})
+  }
+  useEffect(()=> {
+    getJobs()
+  }, [])
+useEffect(()=>{
+    console.log('Jobs changed')
+    console.log(jobs)
+}, [jobs])
 
   return (
     <div className='container'>

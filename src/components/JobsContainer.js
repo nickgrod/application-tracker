@@ -1,26 +1,17 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
+import {Link} from 'react-router-dom'
 import JobsContext from '../context/jobs-context'
-import axios from 'axios'
+import JobOpening from '../components/JobOpening'
 const JobsContainer = () => {
-    const { jobs, jobsDispatch } = useContext(JobsContext)
+    const { jobs } = useContext(JobsContext)
 
-    const getJobs = async() => {
-        const response = await axios.get('https://github-jobs-proxy.appspot.com/positions?description=javascript&location=san+francisco');
-        const pop_jobs = response.data;
-        jobsDispatch({type:'POPULATE_JOBS', pop_jobs})
-      }
-      getJobs()
-    useEffect(()=>{
-        console.log('Jobs changed')
-        console.log(jobs)
-    }, [jobs])
-    return (
-        <div>
+    return(
+        <div className = 'column width-100 margin-lg'>
             {
                 jobs.length > 0 ? (
                     jobs.map((job) => {
                         return (
-                            <div>{job.type}</div>
+                            <JobOpening key = {job.id} job = {job}></JobOpening>
                         )
                     })
                 ) : (

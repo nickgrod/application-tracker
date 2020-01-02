@@ -85,4 +85,26 @@
       margin:0.2em 0em;
       font-weight:300;
     }
+  
+  }
+  .job_description{
+    color:white;
+    font-family: $open-sans;
+    margin-left:1em;
+    margin-top:.5em;
+    margin-bottom:.3em;
+
+    a {
+      text-decoration: none;
+      color: $blue;
+    }
+  }
+  .job_opening {
+    padding-top:10px;
+    padding-bottom:10px;
+    border-bottom: 1px solid $light-grey;
+    width:100%;
+    a{
+      text-decoration: none;
+    }
   }
